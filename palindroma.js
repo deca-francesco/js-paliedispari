@@ -31,5 +31,6 @@ function isPalindrome(word) {
     }
     // output
     console.log(msg);
-    alert(msg);
+    alert(`${user_word} | ${mirrored_word} 
+${msg}`);
 }
