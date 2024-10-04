@@ -31,7 +31,7 @@ alert(`Player: ${player_number} | CPU: ${cpu_number} = ${player_number + cpu_num
 final_number = player_number + cpu_number;
 
 if (final_number % 2 == 0 && player_even == true || final_number % 2 != 0 && player_even == false) {
-    console.log(``);
+    console.log("Player wins");
     alert("HAI VINTO");
 } else {
     console.log("CPU wins");
