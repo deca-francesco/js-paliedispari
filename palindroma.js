@@ -10,7 +10,10 @@ let user_word = String();
 
 // devo prendere la parola con un prompt
 user_word = prompt("Inserisci una parola per vedere se è palindroma");
+// richiamo le funzioni
 isPalindrome(user_word);
+isPalindromeArray(user_word);
+
 // verifico se la parola inserita è uguale invertendo le lettere
 /**
  * given a word returns a message if it is a palindrome
@@ -34,3 +37,32 @@ function isPalindrome(word) {
     alert(`${user_word} | ${mirrored_word} 
 ${msg}`);
 }
+
+
+
+// Metodo 2
+// un modo per ciclare nell'array
+function isPalindromeArray(word) {
+    let user_word_array = user_word.split("");
+    console.log(user_word_array);
+
+    // creo l'array con le lettere in ordine inverso
+    let user_word_array_mirrored = user_word_array.reverse();
+    console.log(user_word_array_mirrored);
+    
+    // ciclo for dove comparo le coppie di lettere partendo dalla prima e dall'ultima. Se sono diverse mi fermo subito
+    // length / 2 perchè comparando le coppie di lettere ci basta metà della lunhezza dell'array
+    for (let i = 0; i < user_word_array.length; i++) {
+        if (user_word_array[i] == user_word_array_mirrored[i]) {
+            continue;
+        } else {
+            console.log("parola NON palindroma");
+            alert("parola NON palindroma")
+            break
+        }
+
+        
+    }
+
+}
+
