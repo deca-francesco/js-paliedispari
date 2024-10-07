@@ -6,7 +6,7 @@ Chiedere all’utente di inserire una parola Creare una funzione per capire se l
 */
 
 // variabili
-let user_word = String();
+let user_word = String().toLowerCase();
 
 // devo prendere la parola con un prompt
 user_word = prompt("Inserisci una parola per vedere se è palindroma");
@@ -14,14 +14,15 @@ user_word = prompt("Inserisci una parola per vedere se è palindroma");
 // METODO 1
 console.log("METODO 1");
 
-
 // richiamo le funzioni
 isPalindrome(user_word);
 
 // verifico se la parola inserita è uguale invertendo le lettere
+
 /**
  * given a word returns a message if it is a palindrome
  * @param {string} user_word
+ * @returns {msg}
 */
 function isPalindrome(user_word) {
     // il messaggio per leggere se la parola è o no palindroma
@@ -64,11 +65,48 @@ function isPalindromeArray(user_word) {
             continue;
         } else {
             console.log(`La parola: "${user_word}" NON è palindroma`);
-            alert(`La parola: "${user_word}" NON è palindroma`)
-            return
+            alert(`La parola: "${user_word}" NON è palindroma`);
+            return;
         }
     }
     console.log(`La parola: "${user_word}" è palindroma`);
     alert(`La parola: "${user_word}" è palindroma`);
 }
 
+
+// METODO 3
+console.log("METODO 3");
+
+// ciclo for con confronto tra 2 array, quello della parola normale e quello invertito
+
+isPalindromeArrayMirrored(user_word);
+
+function isPalindromeArrayMirrored(user_word) {
+    // creo l'array della parola 
+    user_word_array = user_word.split("");
+    // creo l'array rovesciato vuoto per ora
+    user_word_array_mirrored = [];
+    // ciclo for dove faccio push delle lettere dell'array originale partendo dalla fine. 
+    // Tipo il metodo reverse() ma senza modificare l'array originale 
+    for (i = user_word_array.length - 1; i >= 0; i--) {
+        user_word_array_mirrored.push(user_word_array[i]);
+        //console.log(user_word_array[i]);
+    }
+    console.log(user_word_array, user_word_array_mirrored);
+    // faccio tornare l'array in una stringa e confronto le stringhe.
+    // Potrei anche confrontare i due array in un ciclo for con un indice solo
+    // confronto tra i due array
+    for (let i = 0; i < user_word_array.length; i++) {
+        console.log(`Indice ${i}: "${user_word_array[i]}" | Indice ${i}: "${user_word_array_mirrored[i]}"`);
+        if (user_word_array[i] == user_word_array_mirrored[i]) {
+            continue;
+        }
+        else {
+            console.log(`La parola: "${user_word}" NON è palindroma`);
+            alert(`La parola: "${user_word}" NON è palindroma`);
+            return;
+        }
+    }
+    console.log(`La parola: "${user_word}" è palindroma`);
+    alert(`La parola: "${user_word}" è palindroma`);
+}

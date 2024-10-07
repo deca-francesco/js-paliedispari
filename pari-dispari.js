@@ -23,17 +23,24 @@ if (confirm("Scegli un numero pari?")) {
 }
 
 player_number = Number(prompt("Inserisci un numero da 1 a 5"));
-cpu_number = Math.floor(Math.random() * 5 + 1);
 
-console.log(`Player: ${player_number} | CPU: ${cpu_number} = ${player_number + cpu_number}`);
-alert(`Player: ${player_number} | CPU: ${cpu_number} = ${player_number + cpu_number}`);
-
-final_number = player_number + cpu_number;
-
-if (final_number % 2 == 0 && player_even == true || final_number % 2 != 0 && player_even == false) {
-    console.log("Player wins");
-    alert("HAI VINTO");
-} else {
-    console.log("CPU wins");
-    alert("hai perso, VINCE CPU");
+function randomNumberCPU() {
+    cpu_number = Math.floor(Math.random() * 5 + 1);
 }
+randomNumberCPU();
+
+function winnerIs() {
+    console.log(`Player: ${player_number} | CPU: ${cpu_number} = ${player_number + cpu_number}`);
+    alert(`Player: ${player_number} | CPU: ${cpu_number} = ${player_number + cpu_number}`);
+    
+    final_number = player_number + cpu_number;
+    
+    if (final_number % 2 == 0 && player_even == true || final_number % 2 != 0 && player_even == false) {
+        console.log("Player wins");
+        alert("HAI VINTO");
+    } else {
+        console.log("CPU wins");
+        alert("hai perso, VINCE CPU");
+    }
+}
+winnerIs();
